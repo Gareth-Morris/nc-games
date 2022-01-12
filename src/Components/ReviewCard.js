@@ -1,49 +1,31 @@
 import { useEffect, useState } from "react";
 import { getReviewCard } from "../utils/api";
-import { Link } from "react-router-dom";
+import Comments from "./Comments";
+import { useParams } from "react-router-dom";
 
 const ReviewCard = () => {
   const [reviewCard, setReviewCard] = useState([]);
 
+  const { review_id } = useParams();
+
+  console.log(review_id);
+
   useEffect(() => {
-    getReviewCard().then((reviewCardFromApi) => {
-      console.log("Got reviews");
+    getReviewCard(review_id).then((reviewCardFromApi) => {
       setReviewCard(reviewCardFromApi);
-      console.log(reviewCardFromApi);
     });
-  }, []);
+  }, [review_id]);
 
   return (
     <div>
-      <ul>
-        {reviewCard.map((review) => {
-          return (
-            <li key={review.title}>
-              <Link to={`/reviews/${review.title}`}>
-                <p>{review.title}</p>
-              </Link>
-              <Link to={`/reviews/${review.review_img_url}`}>
-                <img src={review.review_img_url}></img>
-              </Link>
-              <Link to={`/reviews/${review.designer}`}>
-                <p>{review.designer}</p>
-              </Link>
-              <Link to={`/reviews/${review.owner}`}>
-                <p>{review.owner}</p>
-              </Link>
-              <Link to={`/reviews/${review.review_body}`}>
-                <p>{review.review_body}</p>
-              </Link>
-              <Link to={`/reviews/${review.comment_count}`}>
-                <p>{review.comment_count}</p>
-              </Link>
-              <Link to={`/reviews/${review.votes}`}>
-                <p>{review.votes}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <p>{reviewCard.title}</p>
+      <img src={reviewCard.review_img_url} alt="Review Image" />
+      <p>{reviewCard.designer}</p>
+      <p>{reviewCard.owner}</p>
+      <p>{reviewCard.review_body}</p>
+      <p>{reviewCard.comment_count}</p>
+      <p>{reviewCard.votes}</p>
+      <Comments />
     </div>
   );
 };

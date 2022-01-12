@@ -7,9 +7,7 @@ const Comments = () => {
 
   useEffect(() => {
     getComments().then((commentsFromApi) => {
-      console.log("Got comments");
       setComments(commentsFromApi);
-      console.log(commentsFromApi);
     });
   }, []);
 

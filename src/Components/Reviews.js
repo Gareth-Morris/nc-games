@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const params = useParams();
+
+  console.log(params);
 
   useEffect(() => {
     getReviews().then((reviewsFromApi) => {
-      console.log("Got reviews");
       setReviews(reviewsFromApi);
-      console.log(reviewsFromApi);
     });
   }, []);
 

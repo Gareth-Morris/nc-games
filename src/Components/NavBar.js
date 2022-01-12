@@ -7,9 +7,7 @@ const NavBar = () => {
 
   useEffect(() => {
     getCategories().then((categoriesFromApi) => {
-      console.log("Got categories");
       setCategories(categoriesFromApi);
-      console.log(categoriesFromApi);
     });
   }, []);
 
