@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../utils/api";
-import { Link } from "react-router-dom";
+import { postComments } from "../utils/api";
 
-const Comments = () => {
+const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    getComments().then((commentsFromApi) => {
+    getComments(review_id).then((commentsFromApi) => {
+      console.log(commentsFromApi);
       setComments(commentsFromApi);
     });
   }, []);
 
   return (
     <div>
+      <h2>Comments</h2>
       <ul>
         {comments.map((comments) => {
           return (
             <li key={comments.title}>
-              <Link to={`/comments/${comments}`}>
-                <p>{comments.body}</p>
-              </Link>
+              <p>{comments.body}</p>
             </li>
           );
         })}

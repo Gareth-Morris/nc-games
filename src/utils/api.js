@@ -10,11 +10,11 @@ export const getCategories = () => {
   });
 };
 
-export const getReviews = (params) => {
-  return gamesApi.get("/reviews").then((res) => {
+export const getReviews = (queries) => {
+  return gamesApi.get("/reviews", { params: queries }).then((res) => {
     return res.data.reviews;
   });
-};
+}; //retrieves all reviews from API
 
 export const getReviewCard = (review_id) => {
   return gamesApi.get(`/reviews/${review_id}`).then((res) => {
@@ -22,8 +22,16 @@ export const getReviewCard = (review_id) => {
   });
 };
 
-export const getComments = () => {
-  return gamesApi.get("/reviews/comments").then((res) => {
+export const getComments = (review_id) => {
+  return gamesApi.get(`/reviews/${review_id}/comments`).then((res) => {
     return res.data.comments;
   });
+};
+
+export const postComments = (review_id) => {
+  return gamesApi
+    .post(`/reviews/${review_id}/comments`, "New Comment")
+    .then((res) => {
+      return res.data.comments;
+    });
 };

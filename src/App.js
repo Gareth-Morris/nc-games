@@ -11,12 +11,10 @@ function App() {
       <div className="App">
         <Header />
         <NavBar />
-        <Reviews />
-        <ReviewCard />
         <Routes>
           <Route path="/" element={<Reviews />} />
-          <Route path="/categories/:category_name" element={<Reviews />} />
-          <Route path="/review/:review_id" element={<ReviewCard />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/reviews/:review_id" element={<ReviewCard />} />
         </Routes>
       </div>
     </BrowserRouter>
