@@ -1,31 +1,30 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const queries = Object.fromEntries(urlSearchParams.entries());
-
-  console.log(queries, "hello");
+  const { category_name } = useParams();
+  // const urlSearchParams = new URLSearchParams(window.location.search);
+  // const queries = Object.fromEntries(urlSearchParams.entries());
 
   useEffect(() => {
-    getReviews(queries).then((reviewsFromApi) => {
+    console.log(category_name, "QUERY");
+    getReviews(category_name).then((reviewsFromApi) => {
       setReviews(reviewsFromApi);
     });
-  }, []);
-  console.log(reviews);
+  }, [category_name]);
+
   return (
     <div>
       <ul>
         {reviews.map((review) => {
           return (
-            <li key={review.title}>
-              <Link to={`/reviews/${review.title}`}>
+            <li key={review.review_id}>
+              <Link to={`/reviews/${review.review_id}`}>
                 <p>{review.title}</p>
               </Link>
-              <Link to={`/reviews/${review.review_img_url}`}>
+              <Link to={`/reviews/${review.review_id}`}>
                 <img src={review.review_img_url}></img>
               </Link>
             </li>

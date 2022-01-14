@@ -1,5 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
-  return <h1>NC Games Reviews</h1>;
+  return (
+    <Link to={`/`}>
+      <h1>NC Games Reviews</h1>
+    </Link>
+  );
 };
 
 export default Header;

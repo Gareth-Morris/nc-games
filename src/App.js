@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
 import NavBar from "./Components/NavBar";
@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<Reviews />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/reviews/:review_id" element={<ReviewCard />} />
+          <Route path="/categories/:category_name" element={<Reviews />} />
         </Routes>
       </div>
     </BrowserRouter>
