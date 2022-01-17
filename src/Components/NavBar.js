@@ -15,10 +15,11 @@ const NavBar = () => {
     <div>
       <ul>
         {categories.map((category) => {
+          const title = category.slug.replaceAll("-", " ").toUpperCase();
           return (
             <li key={category.slug}>
               <Link to={`/categories/${category.slug}`}>
-                <p>{category.slug}</p>
+                <p>{title}</p>
               </Link>
             </li>
           );

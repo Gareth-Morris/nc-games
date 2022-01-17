@@ -11,14 +11,12 @@ export const getCategories = () => {
 };
 
 export const getReviews = (category_name) => {
-  // console.log("queries", queries);
-
   return gamesApi
     .get("/reviews", { params: { category: category_name } })
     .then((res) => {
       return res.data.reviews;
     });
-}; //retrieves all reviews from API
+};
 
 export const getReviewCard = (review_id) => {
   return gamesApi.get(`/reviews/${review_id}`).then((res) => {

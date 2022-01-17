@@ -9,7 +9,7 @@ const Reviews = () => {
   // const queries = Object.fromEntries(urlSearchParams.entries());
 
   useEffect(() => {
-    console.log(category_name, "QUERY");
+    // console.log(category_name, "QUERY");
     getReviews(category_name).then((reviewsFromApi) => {
       setReviews(reviewsFromApi);
     });
