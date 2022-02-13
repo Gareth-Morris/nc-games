@@ -8,14 +8,14 @@ import { useState } from "react";
 import { UserContext } from "./Contexts/User";
 
 function App() {
-  const [user, setUser] = useState({ username: "jessjelly" });
+  // const [user, setUser] = useState({ username: "jessjelly" });
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value="hello from context">
       <BrowserRouter>
         <div className="App">
           <Header />
-          <NavBar setUser={setUser} />
+          <NavBar />
           <Routes>
             <Route path="/" element={<Reviews />} />
             <Route path="/reviews" element={<Reviews />} />

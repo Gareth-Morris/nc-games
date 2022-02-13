@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getReviewCard } from "../utils/api";
 import Comments from "./Comments";
 import { useParams } from "react-router-dom";
-import VoteCounter from "./voteCounter";
+import VoteCounter from "./VoteCounter";
 
 const ReviewCard = () => {
   const [reviewCard, setReviewCard] = useState([]);
@@ -20,7 +20,7 @@ const ReviewCard = () => {
   return (
     <div>
       <p>{reviewCard.title}</p>
-      <img src={reviewCard.review_img_url} alt="Review Image" />
+      <img src={reviewCard.review_img_url} alt="Review" />
       <p>{reviewCard.designer}</p>
       <p>{reviewCard.owner}</p>
       <p>{reviewCard.review_body}</p>
