@@ -4,17 +4,19 @@ import Header from "./Components/Header";
 import NavBar from "./Components/NavBar";
 import Reviews from "./Components/Reviews";
 import ReviewCard from "./Components/ReviewCard";
+import LoginArea from "./Components/LoginArea";
 import { useState } from "react";
 import { UserContext } from "./Contexts/User";
 
 function App() {
-  // const [user, setUser] = useState({ username: "jessjelly" });
+  const [user, setUser] = useState();
 
   return (
-    <UserContext.Provider value="hello from context">
+    <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <div className="App">
           <Header />
+          <LoginArea />
           <NavBar />
           <Routes>
             <Route path="/" element={<Reviews />} />
