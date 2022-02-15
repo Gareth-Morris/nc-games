@@ -3,7 +3,7 @@ import { postComment } from "../utils/api";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/User";
 
-const PostComments = ({ review_id, setComments }) => {
+const PostComments = ({ review_id, setComments, setCommentCount }) => {
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
 
@@ -22,6 +22,7 @@ const PostComments = ({ review_id, setComments }) => {
         .then((postedComment) => {
           setNewComment("");
           setComments((currComments) => [postedComment, ...currComments]);
+          setCommentCount((currCommentCount) => Number(currCommentCount) + 1);
         })
         .catch((err) => {
           console.log(err);

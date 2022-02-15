@@ -22,7 +22,7 @@ const VoteReviewArea = ({ review }) => {
 
   return (
     <div>
-      <p>Likes: {reviewVotes} </p>
+      <p>Votes: {reviewVotes} </p>
       <button onClick={handleVote}>Like</button>
     </div>
   );

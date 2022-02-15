@@ -8,10 +8,12 @@ const ReviewCard = () => {
   const [reviewCard, setReviewCard] = useState({});
   const { review_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [commentCount, setCommentCount] = useState(0);
 
   useEffect(() => {
     getReviewCard(review_id).then((reviewCardFromApi) => {
       setReviewCard(reviewCardFromApi);
+      setCommentCount(reviewCardFromApi.comment_count);
       setIsLoading(false);
     });
   }, [review_id]);
@@ -25,10 +27,10 @@ const ReviewCard = () => {
       <p>{reviewCard.designer}</p>
       <p>{reviewCard.owner}</p>
       <p>{reviewCard.review_body}</p>
-      <p>Number of comments: {reviewCard.comment_count}</p>
-      <p>Number of votes in database: {reviewCard.votes}</p>
+      <p>Number of comments: {commentCount}</p>
+      {/* <p>Number of votes in database: {reviewCard.votes}</p> */}
       <VoteReviewArea review={reviewCard} />
-      <Comments review_id={review_id} />
+      <Comments review_id={review_id} setCommentCount={setCommentCount} />
     </div>
   );
 };
