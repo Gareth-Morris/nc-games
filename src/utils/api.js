@@ -10,9 +10,11 @@ export const getCategories = () => {
   });
 };
 
-export const getReviews = (category_name) => {
+export const getReviews = (params) => {
   return gamesApi
-    .get("/reviews", { params: { category: category_name } })
+    .get("/reviews", {
+      params,
+    })
     .then((res) => {
       return res.data.reviews;
     });

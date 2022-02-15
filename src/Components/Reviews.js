@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
 import { Link, useParams } from "react-router-dom";
+import SortArea from "../Components/SortArea";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { category_name } = useParams();
-  // const urlSearchParams = new URLSearchParams(window.location.search);
-  // const queries = Object.fromEntries(urlSearchParams.entries());
+  const [localSort_by, setLocalSort_by] = useState("created_at");
+  const [localOrder, setLocalOrder] = useState("ASC");
 
   useEffect(() => {
-    // console.log(category_name, "QUERY");
-    getReviews(category_name).then((reviewsFromApi) => {
+    getReviews({
+      category: category_name,
+      sort_by: localSort_by,
+      order: localOrder,
+    }).then((reviewsFromApi) => {
       setReviews(reviewsFromApi);
     });
-  }, [category_name]);
+  }, [category_name, localOrder, localSort_by]);
 
   return (
     <div>
+      <SortArea
+        order={localOrder}
+        setOrder={setLocalOrder}
+        sort_by={localSort_by}
+        setSort_by={setLocalSort_by}
+      />
       <ul>
         {reviews.map((review) => {
           return (
