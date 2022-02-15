@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getComments } from "../utils/api";
+import { getComments, deleteComment } from "../utils/api";
 import PostComments from "./PostComments";
 
 const Comments = ({ review_id, setCommentCount }) => {
@@ -11,14 +11,30 @@ const Comments = ({ review_id, setCommentCount }) => {
     });
   }, [review_id]);
 
+  const handleDeleteComment = (comment_id, index) => {
+    deleteComment(comment_id).then(() => {
+      setCommentCount((currCommentCount) => Number(currCommentCount) - 1);
+      const newComments = [...comments];
+      newComments.splice(index, 1);
+      setComments(newComments);
+    });
+  };
+
   return (
     <div>
       <h2>Comments</h2>
       <ul>
-        {comments.map((comments) => {
+        {comments.map((comments, index) => {
           return (
             <li key={comments.comment_id}>
               <p>{comments.body}</p>
+              <button
+                onClick={() => {
+                  handleDeleteComment(comments.comment_id, index);
+                }}
+              >
+                Delete comment
+              </button>
             </li>
           );
         })}

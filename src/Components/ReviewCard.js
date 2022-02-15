@@ -28,7 +28,6 @@ const ReviewCard = () => {
       <p>{reviewCard.owner}</p>
       <p>{reviewCard.review_body}</p>
       <p>Number of comments: {commentCount}</p>
-      {/* <p>Number of votes in database: {reviewCard.votes}</p> */}
       <VoteReviewArea review={reviewCard} />
       <Comments review_id={review_id} setCommentCount={setCommentCount} />
     </div>

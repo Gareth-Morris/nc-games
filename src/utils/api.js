@@ -43,3 +43,9 @@ export const incReviewVote = (review_id, inc_votes) => {
     return res.data.review;
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return gamesApi.delete(`/comments/${comment_id}`).then((res) => {
+    return res.status;
+  });
+};
