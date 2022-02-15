@@ -7,10 +7,9 @@ const Comments = ({ review_id }) => {
 
   useEffect(() => {
     getComments(review_id).then((commentsFromApi) => {
-      console.log(commentsFromApi);
       setComments(commentsFromApi);
     });
-  }, []);
+  }, [review_id]);
 
   return (
     <div>
@@ -18,7 +17,7 @@ const Comments = ({ review_id }) => {
       <ul>
         {comments.map((comments) => {
           return (
-            <li key={comments.title}>
+            <li key={comments.comment_id}>
               <p>{comments.body}</p>
             </li>
           );
