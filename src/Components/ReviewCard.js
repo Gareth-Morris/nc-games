@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getReviewCard } from "../utils/api";
 import Comments from "./Comments";
 import { useParams } from "react-router-dom";
-import VoteCounter from "./VoteCounter";
 import VoteReviewArea from "./VoteReviewArea";
 
 const ReviewCard = () => {
@@ -29,7 +28,6 @@ const ReviewCard = () => {
       <p>Number of comments: {reviewCard.comment_count}</p>
       <p>Number of votes in database: {reviewCard.votes}</p>
       <VoteReviewArea review={reviewCard} />
-      {/* <VoteCounter /> */}
       <Comments review_id={review_id} />
     </div>
   );

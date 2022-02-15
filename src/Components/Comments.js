@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../utils/api";
-import { postComments } from "../utils/api";
+import PostComments from "./PostComments";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
@@ -23,6 +23,7 @@ const Comments = ({ review_id }) => {
           );
         })}
       </ul>
+      <PostComments review_id={review_id} setComments={setComments} />
     </div>
   );
 };

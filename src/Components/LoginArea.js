@@ -8,6 +8,7 @@ const LoginArea = () => {
   return (
     <div>
       <p>{user}</p>
+
       {user ? (
         <button
           onClick={() => {

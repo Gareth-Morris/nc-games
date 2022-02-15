@@ -1,5 +1,5 @@
 const Login = async () => {
-  return "Logged in as jessjelly";
+  return "jessjelly";
 };
 
 export default Login;

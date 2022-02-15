@@ -30,11 +30,11 @@ export const getComments = (review_id) => {
   });
 };
 
-export const postComments = (review_id) => {
+export const postComment = (review_id, username, body) => {
   return gamesApi
-    .post(`/reviews/${review_id}/comments`, "New Comment")
+    .post(`/reviews/${review_id}/comments`, { username, body })
     .then((res) => {
-      return res.data.comments;
+      return res.data.comment;
     });
 };
 
