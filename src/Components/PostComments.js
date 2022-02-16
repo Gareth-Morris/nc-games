@@ -13,11 +13,8 @@ const PostComments = ({ review_id, setComments, setCommentCount }) => {
   };
 
   const handlePostCommentSubmit = (event) => {
-    console.log("posting somat");
     event.preventDefault();
     if (newComment.length > 0) {
-      console.log("User is", user);
-      console.log(newComment);
       postComment(review_id, user, newComment)
         .then((postedComment) => {
           setNewComment("");
@@ -30,16 +27,18 @@ const PostComments = ({ review_id, setComments, setCommentCount }) => {
     }
   };
   return (
-    <form onSubmit={handlePostCommentSubmit} id="Form">
-      <label>
-        Post your comment here:
+    <form onSubmit={handlePostCommentSubmit} id="Form" className="commentform">
+      <label className="commentlabel">
+        Is the reviewer right? Share your views...
         <input
           onChange={handlePostCommentChange}
           value={newComment}
           type="text"
+          placeholder="Your comment..."
+          className="commentinput"
         />
       </label>
-      <input type="submit" value="Post your comment" />
+      <input type="submit" value="Submit" className="commentbutton" />
     </form>
   );
 };

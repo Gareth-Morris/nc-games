@@ -6,7 +6,7 @@ const LoginArea = () => {
   const { user, setUser } = useContext(UserContext);
 
   return (
-    <div>
+    <div className="loginarea">
       <p>{user}</p>
 
       {user ? (

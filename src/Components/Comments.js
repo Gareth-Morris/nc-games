@@ -22,8 +22,7 @@ const Comments = ({ review_id, setCommentCount }) => {
 
   return (
     <div>
-      <h2>Comments</h2>
-      <ul>
+      <ul className="commentlist">
         {comments.map((comments, index) => {
           return (
             <li key={comments.comment_id}>
@@ -32,8 +31,9 @@ const Comments = ({ review_id, setCommentCount }) => {
                 onClick={() => {
                   handleDeleteComment(comments.comment_id, index);
                 }}
+                className="deletecommentbutton"
               >
-                Delete comment
+                Delete
               </button>
             </li>
           );

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 import SortArea from "../Components/SortArea";
+import NavBar from "./NavBar";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -33,18 +34,19 @@ const Reviews = () => {
     <p>Loading</p>
   ) : (
     <div>
+      <NavBar />
       <SortArea
         order={localOrder}
         setOrder={setLocalOrder}
         sort_by={localSort_by}
         setSort_by={setLocalSort_by}
       />
-      <ul>
+      <ul className="reviews">
         {reviews.map((review) => {
           return (
             <li key={review.review_id}>
               <Link to={`/reviews/${review.review_id}`}>
-                <p>{review.title}</p>
+                <h3>{review.title}</h3>
               </Link>
               <Link to={`/reviews/${review.review_id}`}>
                 <img src={review.review_img_url}></img>

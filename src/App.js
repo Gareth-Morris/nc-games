@@ -16,9 +16,9 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <div className="App">
-          <Header />
           <LoginArea />
-          <NavBar />
+          <Header />
+          {/* <NavBar /> */}
           <Routes>
             <Route path="/" element={<Reviews />} />
             <Route path="/categories" element={<Reviews />} />

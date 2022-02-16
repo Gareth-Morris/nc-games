@@ -23,7 +23,9 @@ const VoteReviewArea = ({ review }) => {
   return (
     <div>
       <p>Votes: {reviewVotes} </p>
-      <button onClick={handleVote}>Like</button>
+      <button onClick={handleVote} className="votebutton">
+        Your Vote
+      </button>
     </div>
   );
 };
