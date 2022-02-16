@@ -8,17 +8,25 @@ const ReviewCard = () => {
   const [reviewCard, setReviewCard] = useState({});
   const { review_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [commentCount, setCommentCount] = useState(0);
 
   useEffect(() => {
-    getReviewCard(review_id).then((reviewCardFromApi) => {
-      setReviewCard(reviewCardFromApi);
-      setCommentCount(reviewCardFromApi.comment_count);
-      setIsLoading(false);
-    });
+    setIsError(false);
+    getReviewCard(review_id)
+      .then((reviewCardFromApi) => {
+        setReviewCard(reviewCardFromApi);
+        setCommentCount(reviewCardFromApi.comment_count);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsError(true);
+      });
   }, [review_id]);
 
-  return isLoading ? (
+  return isError ? (
+    <h2>Review Not Found</h2>
+  ) : isLoading ? (
     <p>Loading</p>
   ) : (
     <div>

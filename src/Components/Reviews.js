@@ -8,18 +8,30 @@ const Reviews = () => {
   const { category_name } = useParams();
   const [localSort_by, setLocalSort_by] = useState("created_at");
   const [localOrder, setLocalOrder] = useState("ASC");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    setIsError(false);
     getReviews({
       category: category_name,
       sort_by: localSort_by,
       order: localOrder,
-    }).then((reviewsFromApi) => {
-      setReviews(reviewsFromApi);
-    });
+    })
+      .then((reviewsFromApi) => {
+        setReviews(reviewsFromApi);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsError(true);
+      });
   }, [category_name, localOrder, localSort_by]);
 
-  return (
+  return isError ? (
+    <h2>Category Not Found</h2>
+  ) : isLoading ? (
+    <p>Loading</p>
+  ) : (
     <div>
       <SortArea
         order={localOrder}
