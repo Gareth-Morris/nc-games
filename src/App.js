@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
-import NavBar from "./Components/NavBar";
 import Reviews from "./Components/Reviews";
 import ReviewCard from "./Components/ReviewCard";
 import LoginArea from "./Components/LoginArea";
@@ -18,7 +17,6 @@ function App() {
         <div className="App">
           <LoginArea />
           <Header />
-          {/* <NavBar /> */}
           <Routes>
             <Route path="/" element={<Reviews />} />
             <Route path="/categories" element={<Reviews />} />
