@@ -148,3 +148,37 @@ li {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  .reviews {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .commentform {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .commentinput,
+  .commentlabel {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+
+  .commentbutton {
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 40pt;
+    margin-bottom: 10px;
+  }
+}
