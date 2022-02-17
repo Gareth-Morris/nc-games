@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gamesApi = axios.create({
-  baseURL: "https://nc-games-emporium-example.herokuapp.com/api",
+  baseURL: "https://games-emporium.herokuapp.com/api",
 });
 
 export const getCategories = () => {
@@ -40,8 +40,8 @@ export const postComment = (review_id, username, body) => {
     });
 };
 
-export const incReviewVote = (review_id, inc_votes) => {
-  return gamesApi.patch(`/reviews/${review_id}`, { inc_votes }).then((res) => {
+export const incReviewVote = (review_id, inc_vote) => {
+  return gamesApi.patch(`/reviews/${review_id}`, { inc_vote }).then((res) => {
     return res.data.review;
   });
 };
