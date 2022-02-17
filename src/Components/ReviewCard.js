@@ -17,7 +17,6 @@ const ReviewCard = () => {
       .then((reviewCardFromApi) => {
         setReviewCard(reviewCardFromApi);
         setCommentCount(reviewCardFromApi.comment_count);
-        console.log(reviewCardFromApi);
         setIsLoading(false);
       })
       .catch(() => {
