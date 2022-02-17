@@ -1,6 +1,6 @@
 Hosted site:
 
-https://620d39b70ee86144f7441dda--games-emporium.netlify.app/reviews/20
+https://games-emporium.netlify.app/
 
 Games Emporium is a board games review web application. The user can views a list of reviews, sort them by category on a nav bar, and sort by created date, no. of comments, no. of votes, and then choose the order in which the results will appear. Each review contains its own info including the ability to vote on each review, and add and delete comments. The user can log in and out.
 
