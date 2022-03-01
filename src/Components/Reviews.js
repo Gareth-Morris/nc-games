@@ -3,6 +3,7 @@ import { getReviews } from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 import SortArea from "../Components/SortArea";
 import NavBar from "./NavBar";
+import PageButtons from "./PageButtons";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -11,6 +12,9 @@ const Reviews = () => {
   const [localOrder, setLocalOrder] = useState("ASC");
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [page, setPage] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
+  const pageLength = 10;
 
   useEffect(() => {
     setIsError(false);
@@ -18,15 +22,19 @@ const Reviews = () => {
       category: category_name,
       sort_by: localSort_by,
       order: localOrder,
+      limit: pageLength,
+      p: page * pageLength,
     })
       .then((reviewsFromApi) => {
+        console.log(reviewsFromApi);
         setReviews(reviewsFromApi);
         setIsLoading(false);
+        setTotalReviews(reviewsFromApi[0].total_count);
       })
       .catch(() => {
         setIsError(true);
       });
-  }, [category_name, localOrder, localSort_by]);
+  }, [category_name, localOrder, localSort_by, page]);
 
   return isError ? (
     <h2>Category Not Found</h2>
@@ -55,6 +63,12 @@ const Reviews = () => {
           );
         })}
       </ul>
+      <PageButtons
+        page={page}
+        setPage={setPage}
+        pageLength={pageLength}
+        totalCount={totalReviews}
+      />
     </div>
   );
 };
