@@ -13,8 +13,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <h2>All your favourite board games reviewed</h2>
-      <h3>Choose a Category:</h3>
+      <h2 id="cat-title"><strong>CATEGORIES</strong></h2>
       <ul className="navbar">
         {categories.map((category) => {
           const title = category.slug.replaceAll("-", " ");

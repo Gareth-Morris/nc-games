@@ -2,6 +2,8 @@ import { useState } from "react";
 import { postComment } from "../utils/api";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/User";
+import {Link} from "react-router-dom";
+import SubmitIcn from "../img/send-button.png";
 
 const PostComments = ({ review_id, setComments, setCommentCount }) => {
   const { user } = useContext(UserContext);
@@ -27,19 +29,26 @@ const PostComments = ({ review_id, setComments, setCommentCount }) => {
     }
   };
   return (
-    <form onSubmit={handlePostCommentSubmit} id="Form" className="commentform">
-      <label className="commentlabel">
-        Is the reviewer right? Share your views...
-        <input
+    <div>
+      <div className="commentform">
+        <form onSubmit={handlePostCommentSubmit} id="Form">
+          <label className="commentlabel">
+            Let us know your thoughts...
+          <input
           onChange={handlePostCommentChange}
           value={newComment}
           type="text"
           placeholder="Your comment..."
           className="commentinput"
-        />
-      </label>
-      <input type="submit" value="Submit" className="commentbutton" />
-    </form>
+          />
+          </label>
+          <input type="image" src={SubmitIcn} value="Submit" className="submit-btn" />
+        </form>
+      </div>
+    <Link to={`/reviews/`}>
+      <h5 className="review-link">(return to all reviews)</h5>
+    </Link>
+  </div>
   );
 };
 

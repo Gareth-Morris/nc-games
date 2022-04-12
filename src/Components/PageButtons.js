@@ -9,17 +9,18 @@ const PageButtons = ({ page, setPage, pageLength, totalCount }) => {
 
   return (
     <div className="pagination">
-      <button onClick={handlePrev} disabled={page === 0}>
-        Prev
+      <button onClick={handlePrev} disabled={page === 0} className="pag-button">
+      &lt;
       </button>
-      <p>
-        Page {page + 1} / {Math.floor(totalCount / pageLength) + 1}
+      <p><strong>
+        {page + 1} / {Math.floor(totalCount / pageLength) + 1}
+        </strong>
       </p>
       <button
         onClick={handleNext}
-        disabled={pageLength * (page + 1) >= totalCount}
+        disabled={pageLength * (page + 1) >= totalCount} className="pag-button"
       >
-        Next
+        &gt;
       </button>
     </div>
   );

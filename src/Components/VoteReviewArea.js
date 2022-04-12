@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { incReviewVote } from "../utils/api";
+import VoteIcon from "../img/vote-button.png";
 
 const VoteReviewArea = ({ review }) => {
   const [reviewVotes, setReviewVotes] = useState(review.votes);
@@ -23,8 +24,8 @@ const VoteReviewArea = ({ review }) => {
   return (
     <div>
       <p>Votes: {reviewVotes} </p>
-      <button onClick={handleVote} className="votebutton">
-        Your Vote
+      <button className="vote-btn">
+        <img src={VoteIcon} alt="Vote Button" className="voteIcn" onClick={handleVote}/>
       </button>
     </div>
   );

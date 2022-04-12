@@ -10,8 +10,10 @@ const SortArea = ({ order, setOrder, sort_by, setSort_by }) => {
   };
 
   return (
-    <div className="sortarea">
-      <p>Sort reviews by:</p>
+  <div>
+      
+      <div className="sortarea">
+      <h4 className="sort-title">SORT BY</h4>
       <div className="sortbox">
         <select id="sortBySelect" value={sort_by} onChange={handleSort}>
           <option value="comment_count">Comments</option>
@@ -25,6 +27,7 @@ const SortArea = ({ order, setOrder, sort_by, setSort_by }) => {
           <option value="DESC">Descending</option>
         </select>
       </div>
+    </div>
     </div>
   );
 };

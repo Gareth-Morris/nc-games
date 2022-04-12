@@ -1,184 +1,381 @@
+@import url("https://use.typekit.net/bbe4oqx.css");
+
+/* Color Theme Swatches in Hex */
+.GE-Colours-1-hex { color: #D9D9D9; }
+.GE-Colours-2-hex { color: #3C558A; }
+.GE-Colours-3-hex { color: #BCC7DE; }
+.GE-Colours-4-hex { color: #C99A2E; }
+.GE-Colours-5-hex { color: #C7A556; }
+
 .App {
   text-align: center;
-  background-color: #dedee2;
-  color: #4e5a6b;
-  min-height: 874px;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Passion+One&display=swap");
-h1,
-h2,
-h3,
-p,
-a {
-  color: black;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-h1 {
-  font-family: "Passion One", cursive;
 }
 
 h2,
 h3,
 h4,
+h5,
+h6,
+p,
+a {
+  font-family: bebas-neue-pro-expanded, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+} 
+
+a:hover {
+  text-decoration: underline;
+}
+
+h2{
+  font-size: 30px;
+}
+
+h3{
+  font-size: 26px;
+}
+
+h4{
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6{
+  font-size: 18px;
+}
+
 p {
-  font-family: "Open Sans", sans-serif;
-  font-size: 12pt;
-  color: black;
+  font-size: 16px;;
+}
+
+h2, h3, h4 {
+  color: #c99A2E;
+}
+
+p {
+  color: #3C558A;;
 }
 
 .loginarea {
+  height: 15px;
   width: 100%;
-  margin-left: 0%;
-  margin-right: 0%;
-  padding-top: 10px;
+  margin: 4% 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 50%;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 55%;
 }
 
 .loginarea > p {
-  font-size: 8pt;
-  flex-basis: auto;
+  font-size: 18px;
+  margin: 0;
 }
 
 .loginarea > button {
-  font-size: 8pt;
-  flex-basis: auto;
-  border-radius: 20px;
-  height: 20px;
-  margin-top: 7px;
-  background-color: gold;
+  font-family: bebas-neue-pro-expanded, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  border-radius: 12px;
+  height: 25px;
+  background-color: #c99a2e;
+  margin-right: 10%;
 }
 
-img {
-  height: 100px;
-  width: 100px;
-  margin-bottom: 20px;
-  border-style: solid;
-  border-width: 6px;
-  border-color: gold;
-  border-radius: 5px;
+.enterIcn, .exitIcn{
+  height: 12.5px;
+  width: 12.5px;
+  padding-bottom: 4px;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
 }
 
 .navbar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  gap: 15px;
   padding-left: 0;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: 5%;
+  max-height: 150px;
+  text-align: left;
 }
 
 li {
   list-style-type: none;
 }
 
-.navlist,
-.commentlist {
-  list-style-type: none;
-  margin-top: 0em;
-  margin-bottom: 0.5em;
-  font-family: "Open Sans";
-  text-transform: capitalize;
-  padding-left: 6px;
-  padding-right: 6px;
+#cat-title{
+  color: #3C558A;
 }
 
-.sortarea {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-bottom: 30px;
-}
-
-.sortarea > p {
+.sortarea > h3 {
   margin: 0;
-  color: black;
+  color: #3C558A;
+}
+
+.sort-title{
+  color: #3C558A;
+}
+
+.sortarea{
+  max-height: 200px;
+  display: flex;
+  justify-content: space-evenly; 
+  align-items: center;
+  gap: 5%;
+  margin: 5%;
 }
 
 .sortbox {
-  padding-top: 2px;
+  width: 25%;
+}
+
+select {
+  font-family: bebas-neue-pro-expanded, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12pt;
+  color: #3C558A;
+  border-width: 3px;
 }
 
 .reviews {
-  padding-left: 0;
-  margin-right: 10px;
-  margin-left: 10px;
+  padding: 5% 0 15% 0;
+  margin: 0 0 5% 0;
+  background-color: #3C558A;
 }
 
-.reviews > li > a > p {
-  color: black;
+.reviews-heading{
+  background-color: #3C558A;
+  padding-top: 10%;
+  margin-bottom: 0;
+}
+
+.rvw-title{
+  margin: 5%;
+}
+
+.reviews-img {
+  height: 100px;
+  width: 150px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #c99a2e;
+  border-radius: 5px;
+}
+
+.navlist,
+.commentlist {
+  margin: 0;
+  text-transform: capitalize;
+  padding: 0 6px;
+  font-size: 20px;
+}
+
+.pagination{
+  margin: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.pag-button{
+  font-family: bebas-neue-pro-expanded, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: #3C558A;
+  border-color: #C99A2E;
+  border-width: 3px;
+  border-radius: 5px;
+  background-color: #C99A2E;
 }
 
 .reviewcard {
-  margin-right: 20px;
-  margin-left: 20px;
+  margin: 0;
 }
 
-.votebutton,
-.deletecommentbutton,
-.commentbutton {
-  font-size: 8pt;
-  border-radius: 20px;
-  height: 30px;
-  width: 100px;
-  background-color: gold;
+.review-title {
+  margin: 5%;
+  color: #3C558A;
 }
 
-.commentform {
+.review-body{
+  margin: 0 5%;
+}
+
+.comment-info{
+  background-color: #3C558A;
+  margin: 10% 0;
+  padding: 5% 0;
+}
+
+.commentlist > li > p{
+  color: #C99A2E;
+}
+
+.voteIcn {
+  height: 25px;
+  width: 50px;
+  border: none;
+  padding-top: 3px;
+  background-color: #C99A2E;
+}
+
+.delIcn {
+  height: 20px;
+  width: 15px;
+  border: none;
+  padding-top: 3px;
+  background-color: #C99A2E;
+}
+
+.vote-btn, .delete-btn {
+  background-color: #C99A2E;
+  border-radius: 12px;
+}
+
+.submit-btn {
+  background-color: #C99A2E;
+  border-radius: 12px;
+  height: 20px;
+  width: 20px;
+  margin: 8% 0;
+  padding: 1.5%;
+}
+
+#Form {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.commentinput,
 .commentlabel {
-  margin-top: 20px;
+  margin-top: 10%;
+  color: #C99A2E;
 }
 
-.commentbutton {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.commentinput{
+  margin-top: 5%;;
+}
+
+.review-link {
+  color: #C99A2E;
+  margin: 5%;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 768px) {
-  .reviews {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+ 
+  .header{
+    position: static;
   }
 
-  .commentform {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  .submit-btn {
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0.75%;
   }
 
-  .commentinput,
-  .commentlabel {
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 30px;
+  .commentform{
+  margin-top: 5%;
   }
 
-  .commentbutton {
-    margin-top: 30px;
-    margin-bottom: 0px;
+  .commentlabel{
+    margin-top: 0;
   }
+  
+  .commentinput{
+  margin-left: 10%;
+  margin-bottom: 8%;
+  }
+
+ .navbar{
+  width: 500px;
+  margin: 5% auto;
+ }
+
+ .rvw-title {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 5% auto;
 }
 
+.reviews{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-result{
+  width: 250px;
+}
+
+}
+
+
 @media screen and (min-width: 1024px) {
-  h1 {
-    font-size: 40pt;
-    margin-bottom: 10px;
-  }
+ 
+.loginarea{
+  margin: 1.5% 0;
+}
+
+.sortarea {
+  justify-content: center;
+  gap: 0%;
+  margin: 0 6%;
+}
+
+.pagination{
+  margin: 2.5%;
+}
+
+.reviews{
+  margin: 0;
+  padding: 5% 12.5%;
+}
+
+.reviews-heading{
+  padding-top: 2.5%;
+  margin-bottom: 0;
+}
+
+h2{
+  font-size: 2em;
+}
+
+p{
+  font-size: 1.5em;
+}
+
+.navlist{
+  font-size: 1.5em;
+}
+
+.navbar{
+  height: 100px;
+  width: 750px;
+  margin: 5% auto;
+  gap: 40px;
+ }
+
 }

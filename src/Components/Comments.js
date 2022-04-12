@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getComments, deleteComment } from "../utils/api";
 import PostComments from "./PostComments";
+import DeleteIcn from "../img/delete-button.png";
 
 const Comments = ({ review_id, setCommentCount }) => {
   const [comments, setComments] = useState([]);
@@ -27,13 +28,11 @@ const Comments = ({ review_id, setCommentCount }) => {
           return (
             <li key={comments.comment_id}>
               <p>{comments.body}</p>
-              <button
+              <button className="delete-btn"><img src={DeleteIcn} alt="Delete" className="delIcn"
                 onClick={() => {
                   handleDeleteComment(comments.comment_id, index);
                 }}
-                className="deletecommentbutton"
-              >
-                Delete
+              />
               </button>
             </li>
           );

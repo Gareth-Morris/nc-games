@@ -1,6 +1,8 @@
 import { UserContext } from "../Contexts/User";
 import { useContext } from "react";
 import Login from "./Login";
+import Enter from "../img/enter.png";
+import Exit from "../img/exit.png";
 
 const LoginArea = () => {
   const { user, setUser } = useContext(UserContext);
@@ -10,21 +12,19 @@ const LoginArea = () => {
       <p>{user}</p>
 
       {user ? (
-        <button
+        <button><img src={Exit} alt ="exit" className="exitIcn"
           onClick={() => {
             setUser(null);
           }}
-        >
-          Log Out
+        />
         </button>
       ) : (
-        <button
+        <button><img src={Enter} alt ="enter" className="enterIcn"
           onClick={async () => {
             const user = await Login();
             setUser(user);
           }}
-        >
-          Log In
+        />
         </button>
       )}
     </div>

@@ -49,17 +49,20 @@ const Reviews = () => {
         sort_by={localSort_by}
         setSort_by={setLocalSort_by}
       />
+      <h2 className="reviews-heading"><strong>REVIEWS</strong></h2>
       <ul className="reviews">
         {reviews.map((review) => {
           return (
-            <li key={review.review_id}>
+            <div className="reviews-results">
+            <li key={review.review_id} className="single-result">
               <Link to={`/reviews/${review.review_id}`}>
-                <h3>{review.title}</h3>
+                <h4 className="rvw-title">{review.title}</h4>
               </Link>
               <Link to={`/reviews/${review.review_id}`}>
-                <img src={review.review_img_url}></img>
+                <img src={review.review_img_url} className="reviews-img"></img>
               </Link>
             </li>
+            </div>
           );
         })}
       </ul>

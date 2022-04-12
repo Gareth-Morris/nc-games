@@ -30,17 +30,18 @@ const ReviewCard = () => {
     <p>Loading</p>
   ) : (
     <div className="reviewcard">
-      <Link to={`/reviews/`}>
-        <h5>(return to all reviews)</h5>
-      </Link>
-      <h3>{reviewCard.title}</h3>
-      <img src={reviewCard.review_img_url} alt="Review" />
-      <p>Game designer: {reviewCard.designer}</p>
-      <p>Reviewer: {reviewCard.owner}</p>
-      <p>{reviewCard.review_body}</p>
-      <VoteReviewArea review={reviewCard} />
-      <h4>This review has {commentCount} comment(s):</h4>
-      <Comments review_id={review_id} setCommentCount={setCommentCount} />
+      <div className="review-info">
+        <h3 className="review-title">{reviewCard.title}</h3>
+        <img src={reviewCard.review_img_url} alt="Review" className="reviews-img"/>
+        <p>Game designer: {reviewCard.designer}</p>
+        <p>Reviewer: {reviewCard.owner}</p>
+        <p className="review-body">{reviewCard.review_body}</p>
+        <VoteReviewArea review={reviewCard} />
+      </div>
+      <div className="comment-info">
+        <h4>This review has {commentCount} comment(s):</h4>
+        <Comments review_id={review_id} setCommentCount={setCommentCount} />
+      </div>
     </div>
   );
 };
