@@ -15,4 +15,4 @@ https://github.com/Gareth-Morris/be-nc-games
 Minimum Node.js version: 16.9
 
 The front end can be forked and cloned from https://github.com/Gareth-Morris/nc-games.
-cd into the repo's root directory and run it with the command 'npm start'.
+cd into the repo's root directory, run the command 'npm install', and run it with the command 'npm start'.
